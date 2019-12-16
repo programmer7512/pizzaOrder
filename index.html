@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="js/jquery-3.4.1.js" charset="utf-8"></script>
+    <script src="js/classes.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>PIZZA HUT</title>
+  </head>
+  <header>
+    <div class="marquee">
+      <marquee width="100%" direction="left" height="30%">
+        <b>BUY TWO PIZZA TODAY AND GET 2L SODA FREE !!!</b>
+      </marquee>
+    </div>
+  </header>
+  <body>
+    <div class="section">
+       <h1>WELCOME TO RITA'S PIZZA HUT</h1>
+    </div>
+    <div class="about us">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+      </p>
+    </div>
+    <div class="section2">
+      <form id="pizzaForm">
+      <label for="pizza-SIZE">CHOOSE PIZZA SIZE</label>
+      <select class="size">
+        <option value="500">SMALL</option>
+        <option value="800">MEDIUM</option>
+        <option value="1200">LARGE</option>
+      </select><br><br>
+
+      <label for="crusts">DO YOU MIND ADDING SOME CRUST</label>
+      <select class="crust">
+        <option value="100">Flatbraed</option>
+        <option value="120">Thin crust</option>
+        <option value="150">Chicago deep dish</option>
+        <option value="200">Neapolitan crust</option>
+        <option value="300">Cheese-stuffed crust</option>
+        <option value="400">Pizza Bagels</option>
+      </select><br><br>
+      <label for="toppings">WHAT KIND OF TOPPINGS DO YOU WANT</label>
+       <select class="toppings" name="" multiple>
+         <option value="50">Pepperoni</option>
+         <option value="60">Mushrooms</option>
+         <option value="65">Bacon</option>
+         <option value="30">Extra cheese</option>
+         <option value="70">Black Olives</option>
+         <option value="80">Sausages</option>
+       </select><br><br>
+       <p id="quantity">
+            How many of the same do you want? <br>
+            <input type="number" name="" id="pizzaNumber" min="1" max="10">
+        </p><br><br>
+        <ul class="summary">
+          <P id="output"></P>
+
+        </ul>
+
+           <p class="delivery">
+             Would you want to be delivered? <br>
+             <button id="yesButton" class="you">Yes</button>
+             <button id="noButton" class="you">No</button>
+         </p>
+
+           <button type="submit" name="button">PLACE ORDER</button>
+        </form>
+      </div><br><br>
+     </div>
+
+  </body><br><br>
+  <!-- <div class="contact">
+  <footer class="blue-bg">
+    <div class="row ">
+        <div class="two columns">
+        </div>
+        <div class="five columns">
+            <h3>Locations</h3><br><br><br><br>
+            <div class="row row-no-padding">
+                <div class="four columns">
+                    <small><strong>NAIROBI</strong></small><Br/>
+                    Fortis Towers<Br/>
+                    Westlands<Br/>
+                    0730165000
+                </div>
+                <div class="four columns">
+                    <small><strong>MOMBASA</strong></small><Br/>
+                    City Mall<br/>
+                    Nyali<Br/>
+                    0730165222
+                </div>
+            </div>
+
+            <br>
+            <div class="row row-no-padding">
+                <div class="four columns">
+                    <small><strong>NAIROBI</strong></small><Br/>
+                    Hurlingham<br/>
+                    Argwings Kodhek Road<br>
+                    0730165444
+                </div>
+
+                <div class="four columns">
+                    <small><strong>NAIROBI</strong></small><Br/>
+                    The Hub Karen<Br/>
+                    Dagoretti Road<Br/>
+                    0730165333
+                </div>
+                <div class="four columns">
+                    <small><strong>NAIROBI</strong></small><Br/>
+                    Marsabit Plaza<Br/>
+                    Ngong Road<Br/>
+                    0730165555
+                </div>
+            </div>
+
+            <br>
+            <div class="row row-no-padding">
+                <div class="four columns">
+                    <small><strong>NAIROBI</strong></small><Br/>
+                    NextGen Mall<Br/>
+                    Mombasa Road<Br/>
+                    0730165666
+                </div><br>
+            </div>
+        </div>
+        <div class="three columns">
+
+            <h3>Contact Us</h3>
+            <div class="row row-no-padding">
+                <div class="columns ">
+                    <ul>
+                      <li>
+                        <a href="mailto:j_oduor@gmail.com">
+                            j_oduor@gmail.com</a>
+                      </li><br><br>
+                      <li>
+                        TEL : +254724731187
+                      </li>
+                    </ul>
+
+                </div>
+
+            </div>
+            <br/>
+
+        </div>
+    </div>
+</footer>
+</div> -->
+</html>
