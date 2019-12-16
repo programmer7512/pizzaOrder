@@ -1,3 +1,34 @@
+main > a {
+    text-decoration: none;
+
+    padding: 0.5em 1em;
+
+    background-color: navy;
+    color: white;
+
+    display: none;
+}
+
+form label {
+    display: block;
+
+    padding: 0.5em 1em;
+}
+
+#summary > div > p {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+textarea {
+    display: none;
+}
+
+input[name="deliver"]:checked + textarea {
+    display: block;
+}
+
 /* .section {
   background: url('pizza1.jfif');
   text-align: center;
