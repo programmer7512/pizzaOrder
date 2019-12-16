@@ -1,4 +1,399 @@
+
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>pizza</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <style>
+main > a {
+    text-decoration: none;
+
+    padding: 0.5em 1em;
+
+    background-color: navy;
+    color: white;
+
+    display: none;
+}
+
+/*
+form {
+    display: none;
+
+    max-width: 64em;
+
+    margin: 2em auto;
+}
+
+form:target {
+    display: block;
+}
+*/
+form label {
+    display: block;
+
+    padding: 0.5em 1em;
+}
+
+#summary > div > p {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+textarea {
+    display: none;
+}
+
+input[name="deliver"]:checked + textarea {
+    display: block;
+}
+        </style>
+    </head>
+    <body>
+        <main>
+
+<button type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#order">
+  Make order
+</button>
+
+<button type="button"
+    class="btn btn-primary"
+    data-toggle="modal"
+    data-target="#checkout">
+  Checkout
+</button>
+
+ <div class="modal" id="order">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Pizza details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form>
+            <div class="modal-body">
+                <fieldset>
+                    <label>size
+                        <select name="size">
+                            <option value="small">small @200</option>
+                            <option value="medium">medium @300</option>
+                            <option value="large">large @400</option>
+                        </select>
+                    </label>
+                    <label>crust
+                        <select name="crust">
+                            <option value="crispy">crispy</option>
+                            <option value="stuffed">stuffed</option>
+                            <option value="gluten_free">gluten free</option>
+                        </select>
+                    </label>
+                    <fieldset>
+                        <legend>toppings</legend>
+                        <label>mushroom
+                            <input type="checkbox" name="toppings" value="mushroom" />
+                        </label>
+                        <label>pineapple
+                            <input type="checkbox" name="toppings" value="pineapple" />
+                        </label>
+                        <label>sausage
+                            <input type="checkbox" name="toppings" value="sausage" />
+                        </label>
+                        <label>pepper
+                            <input type="checkbox" name="toppings" value="pepper" />
+                        </label>
+                    </fieldset>
+                    <label>quantity
+                        <input type="number" name="quantity" min="1" value="1" />
+                    </label>
+                </fieldset>
+            </div>
+
+      <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit"
+                    class="btn btn-success">Submit</button>
+                <button type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+ <div class="modal" id="checkout">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Summary</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form>
+            <div class="modal-body">
+                <fieldset id="summary">
+                    <label>grand total
+                        <span data-name="total">0</span>
+                    </label>
+                    <label>deliver?
+                        <input type="checkbox" name="deliver" />
+                        <textarea name="location" placeholder="delivery location here"></textarea>
+                    </label></fieldset>
+            </div>
+
+      <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit"
+                    class="btn btn-success">Submit</button>
+                <button type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+            <template>
+                <div>
+                    <p data-name="size">size: </p>
+                    <p data-name="crust">crust: </p>
+                    <p data-name="toppings">toppings: </p>
+                    <p data-name="quantity">quantity: </p>
+                    <p data-name="cost">total: </p>
+                </div>
+            </template>
+        </main>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script>
+const prices = {
+      sizes: {
+          "small": 200
+        , "medium": 300
+        , "large": 400
+      }
+    , crusts: {
+          "crispy" : 50
+        , "stuffed": 75
+        , "gluten_free" : 60
+    }
+    , toppings: {
+          "mushroom" : {
+              "small" : 50
+            , "medium" : 40
+            , "large" : 30
+          }
+        , "pineapple" : {
+              "small" : 30
+            , "medium" : 25
+            , "large" : 20
+          }
+        , "sausage" : {
+              "small" : 40
+            , "medium" : 35
+            , "large" : 20
+          }
+        , "pepper" : {
+              "small" : 20
+            , "medium" : 15
+            , "large" : 10
+          }
+      }
+    , delivery: 100
+};
+
+// Object holding all the pizza orders made before checking out
+let transaction = {
+    orders: []
+}
+
+// Demonstrates the use of a constructor in Javascript using a Class
+class Pizza {
+    constructor(size, crust, toppings, quantity) {
+        this.size = size;
+        this.crust = crust;
+        this.toppings = toppings;
+        this.quantity = quantity;
+    }
+}
+
+// Uses the "Pizza" class above to create an order for a pizza from a forms data
+function createOrder(formData) {
+    let order = new Pizza(formData.get('size'), formData.get('crust'), formData.getAll('toppings'), formData.get('quantity'));
+
+    return order;
+}
+
+// Displays an orders summary, by getting a HTML template and populating it with data from the order
+function showOrder(order) {
+    let total = 0;
+
+    total += prices.sizes[order.size];
+    total += prices.crusts[order.crust];
+
+    let clone = document.importNode(template.content, true);
+
+    clone.querySelector('[data-name="size"]')
+        .innerHTML += `<span>${order.size}</span><span>${prices.sizes[order.size]}</span>`;
+
+    clone.querySelector('[data-name="crust"]')
+        .innerHTML += `<span>${order.crust}</span></span>${prices.crusts[order.crust]}</span>`;
+
+    order.toppings
+        .forEach(
+            topping => {
+                clone.querySelector('[data-name="toppings"]')
+                    .innerHTML += `<span>${topping} @ ${prices.toppings[topping][order.size]}</span>`;
+
+                total += prices.toppings[topping][order.size];
+            }
+        );
+
+    clone.querySelector('[data-name="quantity"]')
+        .innerHTML += `<span>${order.quantity}</span><span></span>`;
+
+    clone.querySelector('[data-name="cost"]')
+        .innerHTML += `<span></span><span>${total * order.quantity}</span>`;
+
+    summary.insertBefore(clone, summary.querySelector('[data-name="total"]').parentNode);
+
+    return ``;
+}
+
+// takes an order and calculates the total cost
+function calculateTotal(order) {
+    let total = 0;
+
+    // add the price as per order size and order crust
+    total += prices.sizes[order.size];
+    total += prices.crusts[order.crust];
+
+    // for each topping requested, find and add the price
+    order.toppings
+        .forEach(
+            topping => {
+                total += prices.toppings[topping][order.size];
+            }
+        );
+
+    // multiply the total cost per pizza by the quantity requested
+    return total * order.quantity;
+}
+
+// takes a list of orders and presents a summary including the total cost. does not include delivery
+function showOrders(orders) {
+    let total = 0;
+
+    orders.forEach(
+        order => {
+            let orderText = showOrder(order);
+            total += calculateTotal(order);
+        }
+    );
+
+    let total_cell = summary.querySelector('[data-name="total"]');
+
+    total_cell.innerHTML = total;
+}
+
+// function to be called whenever the pizza order form is submitted
+function pizzaOrderHandler (event) {
+    event.preventDefault();
+
+    // get the data from the form
+    let formData = new FormData(event.target);
+
+    // add pizza order to transaction by creating an order using the form data
+    transaction.orders.push(createOrder(formData));
+
+    // reset the form
+    event.target
+        .reset();
+}
+
+// function to be called whenever the delivery checkbox is checked/unchecked, finds where the total amound is displayed and updates it with the delivery price
+function deliveryEventHandler(event) {
+    let total_span = event.target
+                        .closest('form')
+                        .querySelector('label > span[data-name="total"]');
+    let total = Number.parseInt(total_span.innerText);
+    total_span.innerText = total + (event.target.checked ? (total > 0 ? prices.delivery : 0) : (total > 0 ? (-1 * prices.delivery) : 0));
+
+}
+
+// function to be called whenever the "checkout" button is clicked
+function checkoutHandler(event) {
+    // If there was already any order summary shown, clear it out
+    summary.querySelectorAll('div')
+        .forEach(
+            div => {
+                summary.removeChild(div)
+            }
+        );
+
+    // show order summary
+    showOrders(transaction.orders);
+
+    // clear out the transaction
+    transaction.orders = [];
+}
+
+let form = document.querySelector('form');
+
+if(! form)
+    console.log('form not found');
+
+form.addEventListener(
+      'submit'
+    , pizzaOrderHandler
+);
+
+let deliver = document.querySelector('input[name="deliver"]');
+
+if(! deliver)
+    console.log('deliver option not found');
+
+deliver.addEventListener(
+      'change'
+    , deliveryEventHandler
+);
+
+let checkout = document.querySelector('[data-target="#checkout"]');
+
+if(! checkout)
+    console.log('checkout button not found');
+
+checkout.addEventListener(
+      'click'
+    , checkoutHandler
+);
+
+let summary = document.querySelector('#summary');
+
+if(! summary)
+    console.log('summary not found');
+
+let template = document.querySelector('template');
+
+if(! template)
+    console.log('template not found');
+        </script>
+    </body>
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <script src="js/jquery-3.4.1.js" charset="utf-8"></script>
@@ -153,4 +548,4 @@
     </div>
 </footer>
 </div>
-</html>
+</html> -->
