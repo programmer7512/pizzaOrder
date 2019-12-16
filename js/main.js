@@ -32,7 +32,6 @@ class Order {
     }, 0);
   }
 }
-
 $(document).ready(function () {
   $("#pizzaForm").submit(function(e){
     e.preventDefault();
