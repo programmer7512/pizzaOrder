@@ -1,16 +1,3 @@
-// $(document).ready(function(){
-// $("#yesButton").click(function(){
-// del=prompt("Enter your location" );
-// alert("Delivery cost is Ksh 500");
-// alert("Your order will be delivered to +('del')");
-// });
-// $("#noButton").click(function(){
-// alert("Remember to try our delivery services next time")
-// });
-//
-// $("#ok").click(function(){
-// });
-// }
 class Pizza {
   constructor(size, toppings, crust, price) {
     this.size = size;
