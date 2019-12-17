@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <title>pizza</title>
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <style>
 form label {
@@ -11,11 +10,20 @@ form label {
 
     padding: 0.4em 1em;
 }
+.navbar-brand{
+  color: black;
+  font-size: 64px;
+  font-family: serif;
+  display: block;
+  line-height: 96px;
+}
 body {
    background: url("wall.jfif");
+   border-radius: 10px;
    background-size: 100% 100%;
    background-repeat: no-repeat;
    background-attachment: fixed;
+   border: 1.5px solid #FFFFFF;
 
 }
 
@@ -39,17 +47,19 @@ input[name="deliver"]:checked + textarea {
         </style>
     </head>
     <body>
-      <div class="top-nav-menu span9">
-<div id="skenav" class="ske-menu"><ul id="menu-main" class="menu"><li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-24"><a href="https://pizzainn.co.ke/">Home</a></li>
-<li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="https://pizzainn.co.ke/about-us/">About Us</a></li>
-<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-112"><a href="https://pizzainn.co.ke/order-online/">Menu</a>
-<ul class="sub-menu">
-	<li id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a href="https://pizzainn.co.ke/pizza-inn-menu/">Pizza Inn Menu</a></li>
-</ul>
-</li>
-<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://pizzainn.co.ke/contact-us/">Contact Us</a></li>
-</ul></div>
-</div>
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Lalley's Pizza Hut</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
       <br><br>
         <main>
 
