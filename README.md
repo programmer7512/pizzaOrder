@@ -15,7 +15,7 @@ Clone the repository and run the html.index file on your prefered browser or sim
 
 
 There are no extra dependencies to be installed or databases or any other code that may be crucial for its use.
-live link for the hosted page https://programmer7512.github.io/Delani-studio/
+live link for the hosted page https://programmer7512.github.io/pizzaOrder/
 ## bugs
 There are no known bugs. In case you do encounter any,or you have suggestion to improve it contact me using contacts below
 ## Technologies Used
