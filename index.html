@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>pizza</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
 form label {
     display: block;
@@ -17,6 +18,7 @@ form label {
   display: block;
   line-height: 96px;
 }
+
 body {
    background: url("wall.jfif");
    border-radius: 10px;
@@ -32,6 +34,34 @@ body {
     display: grid;
 
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
 }
 
 textarea {
@@ -52,11 +82,11 @@ input[name="deliver"]:checked + textarea {
     <div class="navbar-header">
       <a class="navbar-brand" href="index.html">Lalley's Pizza Hut</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+    <ul>
+      <li class="active"><a href="#">HOME</a></li>
+      <li><a href="#">ABOUT</a></li>
+      <li><a href="#">CONTACT US</a></li>
+      <li><a href="#">VIEW OFFERS</a></li>
     </ul>
   </div>
 </nav>
