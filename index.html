@@ -39,6 +39,17 @@ input[name="deliver"]:checked + textarea {
         </style>
     </head>
     <body>
+      <div class="top-nav-menu span9">
+<div id="skenav" class="ske-menu"><ul id="menu-main" class="menu"><li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9 current_page_item menu-item-24"><a href="https://pizzainn.co.ke/">Home</a></li>
+<li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="https://pizzainn.co.ke/about-us/">About Us</a></li>
+<li id="menu-item-112" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-112"><a href="https://pizzainn.co.ke/order-online/">Menu</a>
+<ul class="sub-menu">
+	<li id="menu-item-108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-108"><a href="https://pizzainn.co.ke/pizza-inn-menu/">Pizza Inn Menu</a></li>
+</ul>
+</li>
+<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://pizzainn.co.ke/contact-us/">Contact Us</a></li>
+</ul></div>
+</div>
       <br><br>
         <main>
 
@@ -116,7 +127,6 @@ input[name="deliver"]:checked + textarea {
                 </fieldset>
             </div>
 
-      <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="submit"
                     class="btn btn-success">Submit</button>
@@ -147,8 +157,6 @@ input[name="deliver"]:checked + textarea {
                         <textarea name="location" placeholder="delivery location here"></textarea>
                     </label></fieldset>
             </div>
-
-      <!-- Modal footer -->
             <div class="modal-footer">
                 <button type="submit"
                     class="btn btn-success"
@@ -162,6 +170,7 @@ input[name="deliver"]:checked + textarea {
         </div>
     </div>
 </div>
+
             <template>
                 <div>
                     <p data-name="size">size: </p>
@@ -176,13 +185,8 @@ input[name="deliver"]:checked + textarea {
                 </div>
             </template>
         </main>
-        <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-        <!-- Popper JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-        <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script>
 let form = document.querySelector('form');
@@ -274,12 +278,11 @@ const prices = {
     , delivery: 100
 };
 
-// Object holding all the pizza orders made before checking out
+// Object holding all the pizza orders
 let transaction = {
     orders: []
 }
-
-// Demonstrates the use of a constructor in Javascript using a Class
+//constructor class pizz
 class Pizza {
     constructor(size, crust, toppings, quantity) {
         this.size = size;
