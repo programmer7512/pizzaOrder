@@ -28,6 +28,9 @@ textarea {
 input[name="deliver"]:checked + textarea {
     display: block;
 }
+.navbar-brand{
+  color: black;
+}
 
 /* .section {
   background: url('pizza1.jfif');
